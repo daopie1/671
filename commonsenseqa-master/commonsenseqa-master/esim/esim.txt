@@ -1,0 +1,24 @@
+# Run this cell to mount your Google Drive.
+from google.colab import drive
+drive.mount('/content/drive/')
+
+!ls 
+
+!pip install pandas
+!pip install torch
+
+!pip install allennlp
+
+import tensorflow as tf
+device_name = tf.test.gpu_device_name()
+if device_name != '/device:GPU:0':
+  raise SystemError('GPU device not found')
+print('Found GPU at: {}'.format(device_name))
+
+#from allennlp.modules import SimilarityFunction
+import allennlp
+print(allennlp.__version__)
+
+!pip install allennlp-light
+
+!python "/content/drive/MyDrive/Project/commonsenseqa-master/commonsenseqa-master/esim/esim_csqa.py"
